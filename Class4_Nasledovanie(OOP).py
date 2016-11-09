@@ -6,8 +6,8 @@ class Person:
         print(self.name)
 
 class Student(Person):
-    def __init__(self, gr, n):
-        Person.__init__(self,n)
+    def __init__(self, gr, name):
+        Person.__init__(self,name)
         self.group = gr
 
     def print_info(self):
