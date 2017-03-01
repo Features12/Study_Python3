@@ -1,5 +1,5 @@
 class Employee:
-    def __init__(self, name, salary):
+    def __init__(self, name, salary = 0):
         self.name = name
         self.salary = salary
 
@@ -9,8 +9,11 @@ class Employee:
     def work(self):
         print(self.name, "I work")
 
+    def print_class(self):
+        return print("Class", type(self).__name__)
+
     def __repr__(self):
-        return object.__class__.__name__,"{}, {}".format(self.name, self.salary)
+        return "name is: %s, salary: %s" % (self.name, self.salary)
 
 
 class Chef(Employee):
@@ -38,25 +41,33 @@ def main():
     Bob = Employee("Bob", 30000) # Employee.__init__(name, salary)
     Bob.giveRaise(0.20) # Employee.giveRaise()
     Bob.work() # Employee.work()
+    Bob.print_class() # Employee.print_class()
     print(Bob) # Employee.__repr__(name, salary)
 
     print()
 
     Anna = Chef("Anna")
     Anna.work()
+    Anna.print_class()
     print(Anna)
 
     print()
 
     Cris = Server("Cris")
     Cris.work()
+    Cris.print_class()
     print(Cris)
 
     print()
 
     MrRobot = PizzaBot("MrRobot")
     MrRobot.work()
+    MrRobot.print_class()
     print(MrRobot)
+
+    """for klass in (Employee, Chef, Server, PizzaBot):
+                    obj = klass(klass.__name__)
+                    obj.work()"""
 
 
 
